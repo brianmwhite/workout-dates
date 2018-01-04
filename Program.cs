@@ -6,8 +6,10 @@ namespace workout_dates
     {
         private static void Main(string[] args)
         {
-            int year = DateTime.Now.Year;
-            if (args.Length > 0) { int.TryParse(args[0], out year); }
+            if (args.Length == 0 || !int.TryParse(args[0], out var year))
+            {
+                year = DateTime.Now.Year;
+            }
 
             var startDate = new DateTime(year,1,1);
             var endDate = new DateTime(year,12,31);
